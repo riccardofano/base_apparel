@@ -142,3 +142,8 @@ select {
 .fw-bold {
   font-weight: var(--fw-bold);
 }
+
+.fs-primary-heading {
+  font-size: var(--fs-primary-heading);
+}
+
