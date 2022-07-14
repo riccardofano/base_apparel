@@ -241,3 +241,32 @@ body {
 .form__email:focus {
   outline: none;
 }
+
+.form__email:not(:placeholder-shown):invalid {
+  box-shadow: 0 0 0 2px var(--c-primary-400);
+}
+
+.form__error-icon,
+.form__error-message {
+  position: absolute;
+  display: none;
+}
+
+.form__error-icon {
+  right: 5rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.form__error-message {
+  text-align: left;
+  color: var(--c-primary-400);
+
+  margin-top: .5rem;
+  padding-left: var(--input-padding);
+}
+
+.form__email:not(:placeholder-shown):invalid ~ .form__error-message,
+.form__email:not(:placeholder-shown):invalid ~ .form__error-icon {
+  display: block;
+}
