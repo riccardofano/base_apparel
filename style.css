@@ -153,3 +153,15 @@ select {
 .fs-error {
   font-size: var(--fs-400);
 }
+
+/* General styling */
+
+body {
+  font-size: var(--fs-body);
+  font-family: var(--ff-body);
+  color: var(--c-primary-300);
+  background-image: url("./images/bg-pattern-desktop.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
