@@ -22,7 +22,7 @@
   --fs-600: 1rem;
   --fs-700: 1.5rem;
   --fs-800: 2.5rem;
-  --fs-900: 3rem;
+  --fs-900: 4rem;
   
   --fs-body: var(--fs-600);
   --fs-button: var(--fs-700);
@@ -31,12 +31,8 @@
   --border-radius: 50rem;
   --body-padding: 1.5rem;
   --input-padding: 1rem;
-}
 
-@media (min-width: 50em) {
-  :root {
-    --fs-primary-heading: var(--fs-900);
-  }
+  --content-width: 28rem;
 }
 
 /* Box sizing rules */
@@ -166,31 +162,36 @@ body {
   font-size: var(--fs-body);
   font-family: var(--ff-body);
   color: var(--c-primary-300);
-  background-image: url("./images/bg-pattern-desktop.svg");
-  background-size: cover;
-  background-repeat: no-repeat;
 }
 
-.logo {
-  height: 25px;
-  width: auto;
+header {
   padding-left: var(--body-padding);
   margin-block: 2rem;
 }
 
-.hero {
+.logo {
+  height: 25px;
+}
+
+.hero img {
+  object-fit: cover;
+  object-position: top left;
+}
+
+.hero__mobile img {
   width: 100%;
   height: 250px;
-  background-image: url("./images/hero-mobile.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: top left;
+}
+
+.hero__desktop {
+  display: none;
 }
 
 .content {
   text-align: center;
   padding-inline: var(--body-padding);
-  padding-top: 3rem;
+  max-width: var(--content-width);
+  margin: 3rem auto 5rem;
 }
 
 .content__header {
@@ -268,5 +269,79 @@ body {
 
 .form__email:not(:placeholder-shown):invalid ~ .form__error-message,
 .form__email:not(:placeholder-shown):invalid ~ .form__error-icon {
+
+@media (min-width: 60em) {
+  :root {
+    --fs-primary-heading: var(--fs-900);
+    --input-padding: 1.5rem;
+    --body-padding: 0;
+  }
+
+  body {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+  }
+
+  main {
+    min-height: 100vh;
+    background-image: url("./images/bg-pattern-desktop.svg"), var(--c-gradient-300);
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding-right: 3.625rem;
+  }
+
+  header {
+    width: var(--content-width);
+    margin-inline: auto;
+    margin-top: 4rem;
+  }
+
+  .logo {
+    height: 100%;
+  }
+
+  .hero__mobile {
+    display: none;
+  }
+
+  .hero__desktop {
   display: block;
+    min-height: 100%;
+    max-height: 100vh;
+    overflow: hidden;
+  }
+
+  .hero__desktop img {
+    min-width: 100%;
+    min-height: 100%;
+  }
+
+  .content {
+    padding-top: 0;
+    text-align: left;
+    margin-top: 8.5rem;
+  }
+
+  .content__header {
+    line-height: 1.05;
+    letter-spacing: 1.15rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .content__description {
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
+  }
+
+  .form__btn {
+    padding-inline: 2.75rem;
+  }
+
+  .form__email {
+    padding-block: 1rem;
+  }
+
+  .form__error-icon {
+    right: 7.5rem;
+  }
 }
